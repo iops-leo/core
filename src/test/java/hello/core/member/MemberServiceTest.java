@@ -1,4 +1,4 @@
-package com.example.core.member;
+package hello.core.member;
 
 import hello.core.AppConfig;
 import hello.core.member.*;

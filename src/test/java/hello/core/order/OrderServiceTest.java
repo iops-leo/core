@@ -1,4 +1,4 @@
-package com.example.core.order;
+package hello.core.order;
 
 import hello.core.AppConfig;
 import hello.core.discount.FixDiscountPolicy;
