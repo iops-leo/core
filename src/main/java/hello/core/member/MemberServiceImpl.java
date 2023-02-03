@@ -8,7 +8,7 @@ public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
 
-    @Autowired
+    @Autowired //생성자 주입으로 등록을 해준다. 필드 주입은 하지말자.
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
