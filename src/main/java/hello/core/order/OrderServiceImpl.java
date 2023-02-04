@@ -8,16 +8,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor //생성자 자동 생성으로 생성자 의존관계 주입
+//@RequiredArgsConstructor //생성자 자동 생성으로 생성자 의존관계 주입
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-//    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
