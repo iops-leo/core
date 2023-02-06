@@ -3,12 +3,15 @@ package hello.core.lifecycle;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class NetworkClient implements InitializingBean, DisposableBean {
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+public class NetworkClient {
 
     private String url;
 
     public NetworkClient() {
-
+        System.out.println("생성자 : " + url);
     }
 
     public void setUrl(String url) {
@@ -27,14 +30,14 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("call : " + url + " message : " + message);
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    @PostConstruct
+    public void init() throws Exception {
         connect();
         call("초기화");
     }
 
-    @Override
-    public void destroy() throws Exception {
+    @PreDestroy
+    public void close() throws Exception {
         disconnect();
     }
 }
